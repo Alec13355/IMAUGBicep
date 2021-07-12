@@ -46,7 +46,8 @@
     "variables": {
       "appServicePlanPortalName": "[concat('AppServicePlan-', parameters('webAppName'))]",
       "hostingPlanName": "[parameters('webAppName')]",
-      "storageAccountName": "azfunctions"
+      "storageAccountName": "azfunctions",
+      "applicationInsightsName": "aiTest"
     },
     "resources": [
       {
@@ -149,6 +150,19 @@
               }
             ]
           }
+        }
+      },
+      {
+        "type": "microsoft.insights/components",
+        "apiVersion": "2020-02-02-preview",
+        "name": "[variables('applicationInsightsName')]",
+        "location": "centralus",
+        "tags": {
+          "[concat('hidden-link:', resourceId('Microsoft.Web/sites', variables('applicationInsightsName')))]": "Resource"
+        },
+        "properties": {
+          "ApplicationId": "[variables('applicationInsightsName')]",
+          "Request_Source": "IbizaWebAppExtensionCreate"
         }
       }
     ]
