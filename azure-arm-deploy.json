@@ -10,6 +10,10 @@
           "description": "Web app name."
         }
       },
+      "functionAppName": {
+        "type": "string",
+        "defaultValue": "imaugFunctionApp"
+      },
       "location": {
         "type": "string",
         "defaultValue": "[resourceGroup().location]",
