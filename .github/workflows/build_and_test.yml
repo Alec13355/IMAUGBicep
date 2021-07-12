@@ -20,35 +20,23 @@ jobs:
       # Log into Azure
       - uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-        # Deploy ARM template
-      - name: Run ARM deploy
-        uses: azure/arm-deploy@v1
-        with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ secrets.AZURE_RG_ARM }}
           template: ./azure-arm-deploy.json
 
         # output containerName variable from template
       - run: echo ${{ steps.deploy.outputs.containerName }}
-    
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ env.NODE_VERSION }}
       
-      - name: npm install, build, and test
-        run: |
-          # Build and test the project, then
-          # deploy to Azure Web App.
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build --if-present
                 
       # deploy web app using Azure credentials
       - name: 'Deploy to Azure WebApp'
-      - uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v2
         with:
           app-name: 'webApp-n2zxwcrdxol4c'
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
