@@ -95,7 +95,7 @@
               "name": "web",
               "location": "[parameters('location')]",
               "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('webAppName'))]"
+                "[resourceId('Microsoft.Web/sites', variable('appServicePlanPortalName'))]"
               ],
               "properties": {
                 "repoUrl": "[parameters('repoUrl')]",
