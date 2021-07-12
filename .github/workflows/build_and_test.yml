@@ -38,11 +38,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm run build --if-present
-                
-      # deploy web app using Azure credentials
+
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v2
-        with:
+        with: 
           app-name: 'webApp-n2zxwcrdxol4c'
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
