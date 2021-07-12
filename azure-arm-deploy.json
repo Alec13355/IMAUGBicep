@@ -45,9 +45,20 @@
     },
     "variables": {
       "appServicePlanPortalName": "[concat('AppServicePlan-', parameters('webAppName'))]",
-      "hostingPlanName": "[parameters('webAppName')]"
+      "hostingPlanName": "[parameters('webAppName')]",
+      "storageAccountName": "azfunctions"
     },
     "resources": [
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2019-06-01",
+        "name": "[variables('storageAccountName')]",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "[parameters('storageAccountType')]"
+        },
+        "kind": "Storage"
+      },
       {
         "type": "Microsoft.Web/serverfarms",
         "apiVersion": "2020-06-01",
@@ -134,7 +145,7 @@
               },
               {
                 "name": "FUNCTIONS_WORKER_RUNTIME",
-                "value": "[variables('functionWorkerRuntime')]"
+                "value": "dotnet"
               }
             ]
           }
