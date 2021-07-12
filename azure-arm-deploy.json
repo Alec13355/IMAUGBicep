@@ -80,7 +80,7 @@
         "location": "[parameters('location')]",
   
         "dependsOn": [
-          "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+          "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]"
         ],
         "properties": {
           "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
@@ -95,7 +95,7 @@
               "name": "web",
               "location": "[parameters('location')]",
               "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+                "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]"
               ],
               "properties": {
                 "repoUrl": "[parameters('repoUrl')]",
@@ -113,11 +113,11 @@
         "location": "[parameters('location')]",
         "kind": "functionapp",
         "dependsOn": [
-          "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+          "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
           "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
         ],
         "properties": {
-          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
           "siteConfig": {
             "appSettings": [
               {
