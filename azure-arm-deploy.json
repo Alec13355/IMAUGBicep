@@ -55,7 +55,7 @@
         "name": "[variables('storageAccountName')]",
         "location": "[parameters('location')]",
         "sku": {
-          "name": "[parameters('storageAccountType')]"
+          "name": "Standard_LRS"
         },
         "kind": "Storage"
       },
