@@ -33,19 +33,18 @@ jobs:
         # output containerName variable from template
       - run: echo ${{ steps.deploy.outputs.containerName }}
     
-      - uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-          
-      - name: Setup Node ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ env.NODE_VERSION }}
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
       
-      - name: 'npm install, build, and test'
+      - name: npm install, build, and test
         run: |
+          # Build and test the project, then
+          # deploy to Azure Web App.
           npm install
           npm run build --if-present
+          npm run test --if-present
                 
       # deploy web app using Azure credentials
       - name: 'Deploy to Azure WebApp'
