@@ -32,13 +32,6 @@ jobs:
 
         # output containerName variable from template
       - run: echo ${{ steps.deploy.outputs.containerName }}
-
-      build-and-deploy:
-      runs-on: ubuntu-latest
-      steps:
-      # checkout the repo
-      - name: 'Checkout GitHub Action' 
-        uses: actions/checkout@main
     
       - uses: azure/login@v1
         with:
