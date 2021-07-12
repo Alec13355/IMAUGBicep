@@ -4,7 +4,7 @@
     "parameters": {
       "webAppName": {
         "type": "string",
-        "defaultValue": "[concat('webApp-', uniqueString(resourceGroup().id))]",
+        "defaultValue": "imaugAppTry",
         "minLength": 2,
         "metadata": {
           "description": "Web app name."
@@ -44,7 +44,8 @@
       }
     },
     "variables": {
-      "appServicePlanPortalName": "[concat('AppServicePlan-', parameters('webAppName'))]"
+      "appServicePlanPortalName": "[concat('AppServicePlan-', parameters('webAppName'))]",
+      "hostingPlanName": "[parameters('webAppName')]"
     },
     "resources": [
       {
