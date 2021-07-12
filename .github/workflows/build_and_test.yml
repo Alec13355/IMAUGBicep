@@ -27,19 +27,6 @@ jobs:
         # output containerName variable from template
       - run: echo ${{ steps.deploy.outputs.containerName }}
       
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run build --if-present
-
-      - name: 'Deploy to Azure WebApp'
-        uses: azure/webapps-deploy@v2
-        with: 
-          app-name: 'webApp-n2zxwcrdxol4c'
-          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-
       # Azure logout 
       - name: logout
         run: |
