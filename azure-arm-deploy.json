@@ -157,9 +157,6 @@
         "apiVersion": "2020-02-02-preview",
         "name": "[variables('applicationInsightsName')]",
         "location": "centralus",
-        "tags": {
-          "[concat('hidden-link:', resourceId('Microsoft.Web/sites', variables('applicationInsightsName')))]": "Resource"
-        },
         "properties": {
           "ApplicationId": "[variables('applicationInsightsName')]",
           "Request_Source": "IbizaWebAppExtensionCreate"
