@@ -95,7 +95,7 @@
               "name": "web",
               "location": "[parameters('location')]",
               "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+                "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
               ],
               "properties": {
                 "repoUrl": "[parameters('repoUrl')]",
