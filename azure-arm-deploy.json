@@ -141,25 +141,11 @@
                 "value": "~10"
               },
               {
-                "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                "value": "[reference(resourceId('microsoft.insights/components', variables('applicationInsightsName')), '2020-02-02-preview').InstrumentationKey]"
-              },
-              {
                 "name": "FUNCTIONS_WORKER_RUNTIME",
                 "value": "dotnet"
               }
             ]
           }
-        }
-      },
-      {
-        "type": "microsoft.insights/components",
-        "apiVersion": "2020-02-02-preview",
-        "name": "[variables('applicationInsightsName')]",
-        "location": "centralus",
-        "properties": {
-          "ApplicationId": "[variables('applicationInsightsName')]",
-          "Request_Source": "IbizaWebAppExtensionCreate"
         }
       }
     ]
