@@ -46,7 +46,7 @@
     "variables": {
       "appServicePlanPortalName": "[concat('AppServicePlan-', parameters('webAppName'))]",
       "hostingPlanName": "[parameters('webAppName')]",
-      "storageAccountName": "azfunctions",
+      "storageAccountName": "imaugAzFunctionSA",
       "applicationInsightsName": "aiTest"
     },
     "resources": [
