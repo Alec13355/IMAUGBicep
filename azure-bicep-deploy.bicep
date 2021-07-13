@@ -53,6 +53,9 @@ resource appInsights 'Microsoft.Insights/components@2020-02-02-preview' = {
   name: applicationInsightsName
   location: 'centralus'
   kind: 'web'
+  properties: {
+    Application_Type: 'web'
+  }
 }
 
 resource functionApp 'Microsoft.Web/sites@2020-06-01' = {
