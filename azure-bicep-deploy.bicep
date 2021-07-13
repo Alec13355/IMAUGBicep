@@ -1,14 +1,12 @@
-param webAppName string = 'imaugAppTry'
-param functionAppName string = 'functionAppName'
+param webAppName string = 'imaugBicepAppTry'
+param functionAppName string = 'functionBicepAppName'
 param location string = resourceGroup().location
 param storageSKU string = 'B1'
 param linuxFxVersion string = 'NODE|15'
-param repoUrl string = 'repoUrl'
 
 var appServicePlanPortalName = 'AppServicePlan-${webAppName}'
-var hostingPlanName = webAppName
-var storageAccountName = 'imaugazfunctionsa'
-var applicationInsightsName = 'aiTest'
+var storageAccountName = 'imaugazbicepfunctionsa'
+var applicationInsightsName = 'aiBicepTest'
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageAccountName
