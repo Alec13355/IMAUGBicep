@@ -24,6 +24,13 @@ jobs:
           resourceGroupName: ${{ secrets.AZURE_RG_ARM }}
           template: ./azure-arm-deploy.json
 
+      - name: Run Bicep deploy
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          resourceGroupName: ${{ secrets.AZURE_RG_BICEP }}
+          template: ./azure-bicep-deploy.bicep
+
         # output containerName variable from template
       - run: echo ${{ steps.deploy.outputs.containerName }}
       
