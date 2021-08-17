@@ -3,6 +3,8 @@ param functionAppName string = 'functionBicepAppName'
 param location string = resourceGroup().location
 param storageSKU string = 'B1'
 param linuxFxVersion string = 'NODE|15'
+@secure()
+param password string
 
 var appServicePlanPortalName = 'AppServicePlan-${webAppName}'
 var storageAccountName = 'imaugazbicepfunctionsa'
