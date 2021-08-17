@@ -14,10 +14,6 @@
         "type": "string",
         "defaultValue": "imaugFunctionApp"
       },
-      "password": {
-        "type": "securestring",
-        "defaultValue": "abc"
-      },
       "location": {
         "type": "string",
         "defaultValue": "[resourceGroup().location]",
